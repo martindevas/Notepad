@@ -36,13 +36,19 @@ fun MainNavHost(modifier: Modifier = Modifier, navHostController: NavHostControl
         navController = navHostController,
         startDestination = "lista"
     ) {
-        composable("lista"){ ListaPage()}
-        composable("detalle"){ DetallePage()}
-        composable("crear"){ CrearPage() }
+        composable("lista"){
+            ListaPage(
+                onNotaSelected = {navHostController.navigate("detalle")}
+            )
+        }
+        composable("detalle"){
+            DetallePage()
+        }
+        composable("crear"){
+            CrearPage()
+        }
     }
 }
-
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
