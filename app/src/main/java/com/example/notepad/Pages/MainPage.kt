@@ -1,7 +1,12 @@
 package com.example.notepad.Pages
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -26,7 +31,8 @@ fun Mainpage(modifier: Modifier = Modifier) {
     val notas = remember { mutableStateListOf<String>() }
     Scaffold(
         modifier = modifier,
-        topBar = {MainTopAppBar()}
+        topBar = {MainTopAppBar()},
+        floatingActionButton = {BotonCrear(navHostController)}
     ) {
         MainNavHost(
             modifier = Modifier.padding(it),
@@ -57,6 +63,13 @@ fun MainNavHost(modifier: Modifier = Modifier,
         composable("crearNota"){
             CrearNotaPage()
         }
+    }
+}
+
+@Composable
+fun BotonCrear(navHostController: NavHostController){
+    FloatingActionButton(onClick = { navHostController.navigate("crearNota") }) {
+        Icon(imageVector = Icons.Filled.Add, contentDescription = "nueva nota" )
     }
 }
 
