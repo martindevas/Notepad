@@ -54,8 +54,8 @@ fun MainNavHost(modifier: Modifier = Modifier,
         composable("detalle"){
             DetallePage()
         }
-        composable("crear"){
-            CrearPage()
+        composable("crearNota"){
+            CrearNotaPage()
         }
     }
 }
