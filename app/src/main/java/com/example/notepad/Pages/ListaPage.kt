@@ -1,5 +1,6 @@
 package com.example.notepad.Pages
-import androidx.compose.material3.Button
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
@@ -15,16 +16,11 @@ fun ListaPage(
     onNotaSelected : () -> Unit,
     notas: List<String>
 ) {
-    Button(
-        onClick = {
-            onNotaSelected()
+  LazyColumn(modifier = modifier) {
+        items(items = notas){
+            Text(text = it)
         }
-    ) {
-        Text(
-            text = "Ir a un detalle",
-            modifier = modifier
-        )
-    }
+  }
 }
 
 @Preview(showBackground = true)
