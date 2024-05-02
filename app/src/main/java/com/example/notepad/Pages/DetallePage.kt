@@ -1,26 +1,33 @@
 package com.example.notepad.Pages
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.notepad.Nota
 import com.example.notepad.ui.theme.NotepadTheme
 
 
 @Composable
 fun DetallePage(
     modifier: Modifier = Modifier,
-    nota: String
+    nota: Nota
 ) {
-    Text(
-        text = nota,
-        modifier = modifier
-    )
+    Column(modifier = modifier) {
+        Text(
+            text = nota.titulo
+        )
+        Text(
+            text = nota.cuerpo
+        )
+    }
+
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DetallePagePreview() {
     NotepadTheme {
-        DetallePage(nota = "Detalle")
+        DetallePage(nota = Nota("Titulo", "cuerpo de la nota"))
     }
 }
