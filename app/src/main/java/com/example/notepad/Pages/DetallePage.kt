@@ -7,9 +7,12 @@ import com.example.notepad.ui.theme.NotepadTheme
 
 
 @Composable
-fun DetallePage(modifier: Modifier = Modifier) {
+fun DetallePage(
+    modifier: Modifier = Modifier,
+    nota: String
+) {
     Text(
-        text = "Detalle Page",
+        text = nota,
         modifier = modifier
     )
 }
@@ -18,6 +21,6 @@ fun DetallePage(modifier: Modifier = Modifier) {
 @Composable
 fun DetallePagePreview() {
     NotepadTheme {
-        DetallePage()
+        DetallePage(nota = "Detalle")
     }
 }
